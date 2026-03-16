@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🇻🇳 Vietnam Legal Advisor</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0f1117;
+      --surface:   #1a1d27;
+      --border:    #2a2d3a;
+      --text:      #e2e8f0;
+      --muted:     #718096;
+      --high:      #fc5c5c;
+      --high-bg:   #2d1515;
+      --medium:    #f6a623;
+      --medium-bg: #2d2010;
+      --low:       #63b3ed;
+      --low-bg:    #0f2030;
+      --na:        #4a5568;
+      --na-bg:     #1a1d27;
+      --action:    #68d391;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .container { max-width: 860px; margin: 0 auto; }
+
+    /* ── header ── */
+    header { margin-bottom: 2.5rem; }
+    header h1 { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.5px; }
+    header h1 span { opacity: 0.5; font-weight: 400; font-size: 1.2rem; margin-left: 0.5rem; }
+    .meta { color: var(--muted); font-size: 0.85rem; margin-top: 0.4rem; }
+
+    /* ── summary bar ── */
+    .summary {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      margin-bottom: 2rem;
+      padding: 1rem 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    .summary-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .dot-high   { background: var(--high); }
+    .dot-medium { background: var(--medium); }
+    .dot-low    { background: var(--low); }
+    .dot-na     { background: var(--na); }
+    .count { font-weight: 700; }
+
+    /* ── section headings ── */
+    .section-title {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--muted);
+      margin: 2rem 0 0.75rem;
+    }
+
+    /* ── law card ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .card-high   { border-left: 4px solid var(--high);   background: var(--high-bg); }
+    .card-medium { border-left: 4px solid var(--medium); background: var(--medium-bg); }
+    .card-low    { border-left: 4px solid var(--low);    background: var(--low-bg); }
+    .card-na     { border-left: 4px solid var(--na);     opacity: 0.65; }
+
+    .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+    .card-title  { font-size: 1rem; font-weight: 600; }
+    .card-meta   { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+
+    .badge {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px;
+      padding: 0.2rem 0.6rem; border-radius: 20px;
+      text-transform: uppercase; white-space: nowrap; flex-shrink: 0;
+    }
+    .badge-High          { background: var(--high);   color: #fff; }
+    .badge-Medium        { background: var(--medium); color: #000; }
+    .badge-Low           { background: var(--low);    color: #000; }
+    .badge-Not-Applicable{ background: var(--na);     color: #fff; }
+
+    .card-body { margin-top: 0.85rem; font-size: 0.92rem; color: #cbd5e0; }
+
+    .affects-list {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      margin: 0.75rem 0;
+    }
+    .tag {
+      font-size: 0.75rem; padding: 0.2rem 0.6rem;
+      border: 1px solid var(--border); border-radius: 20px; color: var(--muted);
+    }
+
+    /* ── action box ── */
+    .action-box {
+      margin-top: 1rem;
+      padding: 0.85rem 1rem;
+      background: rgba(104, 211, 145, 0.07);
+      border: 1px solid rgba(104, 211, 145, 0.2);
+      border-radius: 8px;
+    }
+    .action-box-title {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--action); margin-bottom: 0.5rem;
+    }
+    .action-box ul { padding-left: 1.2rem; }
+    .action-box li { font-size: 0.88rem; color: #9ae6b4; margin-bottom: 0.25rem; }
+
+    /* ── confidence ── */
+    .confidence { font-size: 0.75rem; color: var(--muted); margin-top: 0.75rem; }
+
+    /* ── source link ── */
+    .source-link {
+      display: inline-block; margin-top: 0.6rem;
+      font-size: 0.8rem; color: var(--low); text-decoration: none;
+    }
+    .source-link:hover { text-decoration: underline; }
+
+    /* ── collapsible NA section ── */
+    details summary {
+      cursor: pointer; font-size: 0.85rem; color: var(--muted);
+      list-style: none; padding: 0.6rem 0;
+      border-top: 1px solid var(--border);
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::before { content: "▶  "; font-size: 0.7rem; }
+    details[open] summary::before { content: "▼  "; }
+
+    /* ── empty state ── */
+    .empty { text-align: center; color: var(--muted); padding: 3rem; }
+
+    /* ── footer ── */
+    footer {
+      margin-top: 3rem; padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem; color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>🇻🇳 Vietnam Legal Advisor <span>for Ha Dong, Hanoi</span></h1>
+    <p class="meta">
+      Last updated: March 16, 2026 at 03:15 UTC &nbsp;·&nbsp;
+      6 laws analyzed &nbsp;·&nbsp;
+      1 relevant to your profile
+    </p>
+  </header>
+
+  <!-- summary bar -->
+  <div class="summary">
+    <div class="summary-item"><div class="dot dot-high"></div>
+      <span><span class="count">0</span> High impact</span></div>
+    <div class="summary-item"><div class="dot dot-medium"></div>
+      <span><span class="count">0</span> Medium impact</span></div>
+    <div class="summary-item"><div class="dot dot-low"></div>
+      <span><span class="count">1</span> Low impact</span></div>
+    <div class="summary-item"><div class="dot dot-na"></div>
+      <span><span class="count">5</span> Not applicable</span></div>
+  </div>
+
+  <!-- relevant laws -->
+  
+  
+    <p class="section-title">⚠ Affects You</p>
+    
+    
+    <div class="card card-Low">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Administrative Penalties in Road Activities</div>
+          <div class="card-meta">
+            Decree 336/2025/NĐ-CP &nbsp;·&nbsp; Government of Vietnam
+             &nbsp;·&nbsp; Effective 2026-03-01
+          </div>
+        </div>
+        <span class="badge badge-Low">Low</span>
+      </div>
+
+      <div class="card-body">
+        You own a vehicle and reside in Vietnam, so Decree 336/2025/NĐ-CP on administrative penalties for road activities and traffic operations applies to you as it regulates violations by individuals using vehicles on roads. The decree, effective since March 1, 2026, sets maximum fines up to 75 million VND for such violations. Your other profile details like employment, crypto holdings, and taxes do not intersect with road traffic rules.
+
+        
+        <div class="affects-list">
+          
+          <span class="tag">potential fines for vehicle traffic violations</span>
+          
+        </div>
+        
+
+        
+
+        <div class="confidence">Confidence: High</div>
+        
+        <a class="source-link" href="https://en.baoquocte.vn/a-number-of-important-laws-decrees-and-circulars-effective-from-march-2026-364237.html" target="_blank" rel="noopener">
+          → View source document
+        </a>
+        
+      </div>
+    </div>
+    
+  
+
+  <!-- not applicable — collapsed by default -->
+  
+  
+  <details>
+    <summary>5 laws reviewed — not applicable to you</summary>
+    
+    <div class="card card-na" style="margin-top:0.75rem">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Amending and Supplementing Decree on Establishment and Operation of Foreign Representative Offices</div>
+          <div class="card-meta">Decree 62/2026/NĐ-CP · Government of Vietnam</div>
+        </div>
+        <span class="badge badge-Not-Applicable">N/A</span>
+      </div>
+      <div class="card-body" style="margin-top:0.5rem; font-size:0.85rem">Amends Decree 06/2005/NĐ-CP on the establishment and operation of representative offices of foreign cooperation and research organizations in Vietnam. Streamlines procedures for establishing foreign representative offices, reducing licensing time to 14 days.</div>
+    </div>
+    
+    <div class="card card-na" style="margin-top:0.75rem">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Stricter Management of Charity and Social Funds</div>
+          <div class="card-meta">Decree 03/2026/NĐ-CP · Government of Vietnam</div>
+        </div>
+        <span class="badge badge-Not-Applicable">N/A</span>
+      </div>
+      <div class="card-body" style="margin-top:0.5rem; font-size:0.85rem">Introduces stricter management of charity and social funds in Vietnam, replacing previous decrees. Requires social and charitable funds to publicly disclose contributions received, assets accepted, and utilization results in mass media before March 31 each year.</div>
+    </div>
+    
+    <div class="card card-na" style="margin-top:0.75rem">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Administrative Penalties in the Archival Sector</div>
+          <div class="card-meta">Decree 31/2026/NĐ-CP · Government of Vietnam</div>
+        </div>
+        <span class="badge badge-Not-Applicable">N/A</span>
+      </div>
+      <div class="card-body" style="margin-top:0.5rem; font-size:0.85rem">Stipulates administrative penalties for violations in the archival sector with maximum fines of 30 million VND for individuals and 60 million VND for organizations. Covers unauthorized access, copying, sharing, destroying, or misappropriating archival documents, and using documents to fabricate or defame.</div>
+    </div>
+    
+    <div class="card card-na" style="margin-top:0.75rem">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Amending Decrees on Houses and Real Estate Business</div>
+          <div class="card-meta">Decree 54/2026/NĐ-CP · Government of Vietnam</div>
+        </div>
+        <span class="badge badge-Not-Applicable">N/A</span>
+      </div>
+      <div class="card-body" style="margin-top:0.5rem; font-size:0.85rem">Amends Decrees 96/2024/NĐ-CP and 95/2024/NĐ-CP guiding the Law on Real Estate Business and Law on Housing. Includes provisions for electronic identification codes for housing in development projects and condominium management units.</div>
+    </div>
+    
+    <div class="card card-na" style="margin-top:0.75rem">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Amending Decree on Environmental Protection Implementation</div>
+          <div class="card-meta">Decree 48/2026/NĐ-CP · Government of Vietnam</div>
+        </div>
+        <span class="badge badge-Not-Applicable">N/A</span>
+      </div>
+      <div class="card-body" style="margin-top:0.5rem; font-size:0.85rem">Amends Decree 08/2022/NĐ-CP implementing the Law on Environmental Protection. Updates environmental protection regulations and enforcement procedures.</div>
+    </div>
+    
+  </details>
+  
+
+  <footer>
+    Generated by <strong>Vietnam Legal Advisor</strong> using Perplexity Sonar API &nbsp;·&nbsp;
+    Not legal advice — consult a qualified lawyer for specific guidance.
+  </footer>
+
+</div>
+</body>
+</html>
