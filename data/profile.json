@@ -5,15 +5,61 @@
   },
   "personal": {
     "residency_status": "vietnam_resident",
-    "nationality": "vietnamese",
-    "location": "Ha Dong, Hanoi"
+    "nationality": "singaporean",
+    "location": "Ha Dong, Hanoi",
+    "age_range": "25-35",
+    "marital_status": "married",
+    "dependents": 1,
+    "has_health_insurance": true,
+    "has_social_insurance": true,
+    "has_unemployment_insurance": true,
+    "is_union_member": false,
+    "is_foreigner": true,
+    "passport_country": "singapore",
+    "holds_work_permit": true,
+    "work_permit_type": "work_permit",
+    "has_temporary_residence_card": true,
+    "spouse": {
+      "is_employed": true,
+      "employer_type": "employee",
+      "has_separate_tax_filing": false,
+      "is_vietnamese": true,
+      "is_dependent": false
+    },
+    "children": [
+      {
+        "age": 0,
+        "in_school": false,
+        "is_dependent_for_tax": true,
+        "has_disability": false
+      }
+    ],
+    "has_dependent_deduction_registered": true,
+    "family_other_dependents": {
+      "supports_parents": false,
+      "supports_siblings": false
+    }
   },
   "employment": {
-    "type": "employment",
+    "type": "employee",
     "industry": "technology_software",
     "employer_type": "employee",
+    "employer_is_foreign_company": false,
+    "employer_is_vietnamese_company": true,
+    "employer_pays_social_insurance": true,
+    "employer_pays_health_insurance": true,
+    "employer_pays_unemployment_insurance": true,
     "has_employees": false,
-    "works_with_foreign_clients": false
+    "works_with_foreign_clients": false,
+    "works_in_digital_technology": true,
+    "receives_salary_in_foreign_currency": true,
+    "has_labor_contract": true,
+    "labor_contract_type": "indefinite",
+    "monthly_gross_salary_vnd": 0,
+    "has_probation_period": false,
+    "has_non_compete_clause": false,
+    "works_remotely": true,
+    "works_overtime_regularly": false
   },
   "business": {
     "is_business_owner": false,
@@ -21,26 +67,97 @@
     "registered_in_vietnam": false,
     "handles_personal_data": false,
     "processes_payments": false,
-    "has_foreign_investment": false
+    "has_foreign_investment": false,
+    "has_ecommerce_activity": false,
+    "earns_from_platform_gig_work": false,
+    "earns_from_content_creation": false,
+    "earns_from_investments": false
   },
   "assets": {
     "owns_property_in_vietnam": false,
+    "property_type": null,
     "owns_vehicle": true,
+    "vehicle_types": [
+      "motorbike"
+    ],
+    "vehicle_registered_in_hanoi": true,
     "has_vietnam_bank_account": true,
     "has_foreign_bank_account": true,
-    "holds_crypto": true
+    "foreign_bank_account_country": "singapore",
+    "holds_crypto": true,
+    "crypto_held_on_licensed_exchange": false,
+    "crypto_types": [
+      "bitcoin",
+      "ethereum"
+    ],
+    "holds_stocks_vietnam": false,
+    "holds_stocks_foreign": false,
+    "has_investment_account": false
   },
   "tax": {
     "files_personal_income_tax": true,
     "vat_registered": false,
-    "receives_foreign_currency_income": true
+    "receives_foreign_currency_income": true,
+    "income_sources": [
+      "employment_salary",
+      "foreign_currency_income"
+    ],
+    "files_quarterly_pit": false,
+    "employer_withholds_pit": true,
+    "has_tax_code": true,
+    "has_dependent_deduction_registered": true,
+    "annual_income_bracket_vnd": "fill_in",
+    "vietnam_singapore_tax_treaty_applied": false,
+    "has_certificate_of_residence": false
+  },
+  "digital_and_data": {
+    "handles_personal_data": false,
+    "transfers_data_cross_border": false,
+    "runs_a_website_or_app": false,
+    "uses_cloud_services_for_work": true,
+    "active_on_social_media_platforms": true,
+    "sells_digital_products_or_services": false,
+    "uses_ai_tools_for_work": true
+  },
+  "legal_history": {
+    "has_ongoing_disputes": false,
+    "has_previous_tax_penalties": false,
+    "has_administrative_violations": false
+  },
+  "life_events": {
+    "planning_to_resign": true,
+    "resignation_timeline": "1_month",
+    "planning_to_leave_vietnam": true,
+    "departure_timeline": "1_month",
+    "departure_type": "permanent",
+    "destination_country": "singapore",
+    "will_retain_vietnam_assets": false,
+    "will_retain_vietnam_bank_account": false,
+    "will_retain_vietnam_property": false,
+    "will_retain_vietnam_vehicle": true,
+    "has_outstanding_tax_obligations": false,
+    "has_outstanding_social_insurance": false,
+    "spouse_also_leaving": false
   },
   "interests": [
     "labor_law",
     "tax_law",
     "data_privacy",
-    "freelance_contractor_regulations",
+    "technology_law",
+    "crypto_digital_assets",
+    "personal_income_tax",
+    "road_traffic_law",
+    "foreign_currency_regulations",
     "fintech_payments",
-    "technology_law"
+    "social_insurance",
+    "digital_technology_industry_law",
+    "ai_regulation",
+    "cybersecurity",
+    "family_law",
+    "child_welfare",
+    "immigration_law",
+    "work_permit_regulations",
+    "foreigner_tax_obligations",
+    "vietnam_singapore_tax_treaty"
   ]
 }
