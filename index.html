@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>🇻🇳 Vietnam Legal Advisor</title>
+  <title>Vietnam Legal Advisor</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -34,13 +34,10 @@
 
     .container { max-width: 860px; margin: 0 auto; }
 
-    /* ── header ── */
     header { margin-bottom: 2.5rem; }
     header h1 { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.5px; }
-    header h1 span { opacity: 0.5; font-weight: 400; font-size: 1.2rem; margin-left: 0.5rem; }
     .meta { color: var(--muted); font-size: 0.85rem; margin-top: 0.4rem; }
 
-    /* ── summary bar ── */
     .summary {
       display: flex; gap: 1rem; flex-wrap: wrap;
       margin-bottom: 2rem;
@@ -57,14 +54,12 @@
     .dot-na     { background: var(--na); }
     .count { font-weight: 700; }
 
-    /* ── section headings ── */
     .section-title {
       font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px;
       text-transform: uppercase; color: var(--muted);
       margin: 2rem 0 0.75rem;
     }
 
-    /* ── law card ── */
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -73,10 +68,10 @@
       margin-bottom: 1rem;
       position: relative;
     }
-    .card-high   { border-left: 4px solid var(--high);   background: var(--high-bg); }
-    .card-medium { border-left: 4px solid var(--medium); background: var(--medium-bg); }
-    .card-low    { border-left: 4px solid var(--low);    background: var(--low-bg); }
-    .card-na     { border-left: 4px solid var(--na);     opacity: 0.65; }
+    .card-High         { border-left: 4px solid var(--high);   background: var(--high-bg); }
+    .card-Medium       { border-left: 4px solid var(--medium); background: var(--medium-bg); }
+    .card-Low          { border-left: 4px solid var(--low);    background: var(--low-bg); }
+    .card-Not-Applicable { border-left: 4px solid var(--na);   opacity: 0.65; }
 
     .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
     .card-title  { font-size: 1rem; font-weight: 600; }
@@ -87,26 +82,21 @@
       padding: 0.2rem 0.6rem; border-radius: 20px;
       text-transform: uppercase; white-space: nowrap; flex-shrink: 0;
     }
-    .badge-High          { background: var(--high);   color: #fff; }
-    .badge-Medium        { background: var(--medium); color: #000; }
-    .badge-Low           { background: var(--low);    color: #000; }
-    .badge-Not-Applicable{ background: var(--na);     color: #fff; }
+    .badge-High           { background: var(--high);   color: #fff; }
+    .badge-Medium         { background: var(--medium); color: #000; }
+    .badge-Low            { background: var(--low);    color: #000; }
+    .badge-Not-Applicable { background: var(--na);     color: #fff; }
 
     .card-body { margin-top: 0.85rem; font-size: 0.92rem; color: #cbd5e0; }
 
-    .affects-list {
-      display: flex; flex-wrap: wrap; gap: 0.4rem;
-      margin: 0.75rem 0;
-    }
+    .affects-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.75rem 0; }
     .tag {
       font-size: 0.75rem; padding: 0.2rem 0.6rem;
       border: 1px solid var(--border); border-radius: 20px; color: var(--muted);
     }
 
-    /* ── action box ── */
     .action-box {
-      margin-top: 1rem;
-      padding: 0.85rem 1rem;
+      margin-top: 1rem; padding: 0.85rem 1rem;
       background: rgba(104, 211, 145, 0.07);
       border: 1px solid rgba(104, 211, 145, 0.2);
       border-radius: 8px;
@@ -118,17 +108,14 @@
     .action-box ul { padding-left: 1.2rem; }
     .action-box li { font-size: 0.88rem; color: #9ae6b4; margin-bottom: 0.25rem; }
 
-    /* ── confidence ── */
     .confidence { font-size: 0.75rem; color: var(--muted); margin-top: 0.75rem; }
 
-    /* ── source link ── */
     .source-link {
       display: inline-block; margin-top: 0.6rem;
       font-size: 0.8rem; color: var(--low); text-decoration: none;
     }
     .source-link:hover { text-decoration: underline; }
 
-    /* ── collapsible NA section ── */
     details summary {
       cursor: pointer; font-size: 0.85rem; color: var(--muted);
       list-style: none; padding: 0.6rem 0;
@@ -138,10 +125,8 @@
     details summary::before { content: "▶  "; font-size: 0.7rem; }
     details[open] summary::before { content: "▼  "; }
 
-    /* ── empty state ── */
     .empty { text-align: center; color: var(--muted); padding: 3rem; }
 
-    /* ── footer ── */
     footer {
       margin-top: 3rem; padding-top: 1.5rem;
       border-top: 1px solid var(--border);
@@ -153,127 +138,154 @@
 <div class="container">
 
   <header>
-    <h1>🇻🇳 Vietnam Legal Advisor <span>for Ha Dong, Hanoi</span></h1>
+    <h1>Vietnam Legal Advisor</h1>
     <p class="meta">
-      Last updated: March 16, 2026 at 03:15 UTC &nbsp;·&nbsp;
-      6 laws analyzed &nbsp;·&nbsp;
-      1 relevant to your profile
+      Last updated: March 16, 2026 at 07:04 UTC &nbsp;·&nbsp;
+      11 laws analyzed &nbsp;·&nbsp;
+      0 relevant to your profile
     </p>
   </header>
 
-  <!-- summary bar -->
   <div class="summary">
     <div class="summary-item"><div class="dot dot-high"></div>
       <span><span class="count">0</span> High impact</span></div>
     <div class="summary-item"><div class="dot dot-medium"></div>
       <span><span class="count">0</span> Medium impact</span></div>
     <div class="summary-item"><div class="dot dot-low"></div>
-      <span><span class="count">1</span> Low impact</span></div>
+      <span><span class="count">0</span> Low impact</span></div>
     <div class="summary-item"><div class="dot dot-na"></div>
-      <span><span class="count">5</span> Not applicable</span></div>
+      <span><span class="count">11</span> Not applicable</span></div>
   </div>
 
-  <!-- relevant laws -->
   
   
-    <p class="section-title">⚠ Affects You</p>
-    
-    
-    <div class="card card-Low">
-      <div class="card-header">
-        <div>
-          <div class="card-title">Administrative Penalties in Road Activities</div>
-          <div class="card-meta">
-            Decree 336/2025/NĐ-CP &nbsp;·&nbsp; Government of Vietnam
-             &nbsp;·&nbsp; Effective 2026-03-01
-          </div>
-        </div>
-        <span class="badge badge-Low">Low</span>
-      </div>
-
-      <div class="card-body">
-        You own a vehicle and reside in Vietnam, so Decree 336/2025/NĐ-CP on administrative penalties for road activities and traffic operations applies to you as it regulates violations by individuals using vehicles on roads. The decree, effective since March 1, 2026, sets maximum fines up to 75 million VND for such violations. Your other profile details like employment, crypto holdings, and taxes do not intersect with road traffic rules.
-
-        
-        <div class="affects-list">
-          
-          <span class="tag">potential fines for vehicle traffic violations</span>
-          
-        </div>
-        
-
-        
-
-        <div class="confidence">Confidence: High</div>
-        
-        <a class="source-link" href="https://en.baoquocte.vn/a-number-of-important-laws-decrees-and-circulars-effective-from-march-2026-364237.html" target="_blank" rel="noopener">
-          → View source document
-        </a>
-        
-      </div>
-    </div>
-    
+    <div class="empty"><p>✅ No new laws affect your profile this period.</p></div>
   
 
-  <!-- not applicable — collapsed by default -->
   
   
   <details>
-    <summary>5 laws reviewed — not applicable to you</summary>
+    <summary>11 laws reviewed — not applicable to you</summary>
     
-    <div class="card card-na" style="margin-top:0.75rem">
+    <div class="card card-Not-Applicable" style="margin-top:0.75rem">
       <div class="card-header">
         <div>
-          <div class="card-title">Amending and Supplementing Decree on Establishment and Operation of Foreign Representative Offices</div>
-          <div class="card-meta">Decree 62/2026/NĐ-CP · Government of Vietnam</div>
+          <div class="card-title">Decree stipulating lists of chemicals subject to regulation under the Chemicals Law</div>
+          <div class="card-meta">Decree 24/2026/NĐ-CP · Government</div>
         </div>
         <span class="badge badge-Not-Applicable">N/A</span>
       </div>
-      <div class="card-body" style="margin-top:0.5rem; font-size:0.85rem">Amends Decree 06/2005/NĐ-CP on the establishment and operation of representative offices of foreign cooperation and research organizations in Vietnam. Streamlines procedures for establishing foreign representative offices, reducing licensing time to 14 days.</div>
+      <div class="card-body" style="margin-top:0.5rem; font-size:0.85rem">This decree provides lists of chemicals subject to regulation under Vietnam's Chemicals Law. It ensures proper classification and management of regulated substances. The decree took immediate effect to support uninterrupted production.</div>
     </div>
     
-    <div class="card card-na" style="margin-top:0.75rem">
+    <div class="card card-Not-Applicable" style="margin-top:0.75rem">
       <div class="card-header">
         <div>
-          <div class="card-title">Stricter Management of Charity and Social Funds</div>
-          <div class="card-meta">Decree 03/2026/NĐ-CP · Government of Vietnam</div>
+          <div class="card-title">Decree detailing measures for development of the chemical industry and chemical safety and security</div>
+          <div class="card-meta">Decree 25/2026/NĐ-CP · Government</div>
         </div>
         <span class="badge badge-Not-Applicable">N/A</span>
       </div>
-      <div class="card-body" style="margin-top:0.5rem; font-size:0.85rem">Introduces stricter management of charity and social funds in Vietnam, replacing previous decrees. Requires social and charitable funds to publicly disclose contributions received, assets accepted, and utilization results in mass media before March 31 each year.</div>
+      <div class="card-body" style="margin-top:0.5rem; font-size:0.85rem">This decree details organizational measures and guidance for implementing provisions on chemical industry development and safety. It promotes secure chemical practices across sectors. It was issued with immediate effect.</div>
     </div>
     
-    <div class="card card-na" style="margin-top:0.75rem">
+    <div class="card card-Not-Applicable" style="margin-top:0.75rem">
       <div class="card-header">
         <div>
-          <div class="card-title">Administrative Penalties in the Archival Sector</div>
-          <div class="card-meta">Decree 31/2026/NĐ-CP · Government of Vietnam</div>
+          <div class="card-title">Decree detailing management of chemical activities and hazardous chemicals in products and goods</div>
+          <div class="card-meta">Decree 26/2026/NĐ-CP · Government</div>
         </div>
         <span class="badge badge-Not-Applicable">N/A</span>
       </div>
-      <div class="card-body" style="margin-top:0.5rem; font-size:0.85rem">Stipulates administrative penalties for violations in the archival sector with maximum fines of 30 million VND for individuals and 60 million VND for organizations. Covers unauthorized access, copying, sharing, destroying, or misappropriating archival documents, and using documents to fabricate or defame.</div>
+      <div class="card-body" style="margin-top:0.5rem; font-size:0.85rem">This decree guides the management of chemical activities and hazardous chemicals in products. It implements key provisions of the Chemicals Law. Immediate effect supports prompt enforcement.</div>
     </div>
     
-    <div class="card card-na" style="margin-top:0.75rem">
+    <div class="card card-Not-Applicable" style="margin-top:0.75rem">
       <div class="card-header">
         <div>
-          <div class="card-title">Amending Decrees on Houses and Real Estate Business</div>
-          <div class="card-meta">Decree 54/2026/NĐ-CP · Government of Vietnam</div>
+          <div class="card-title">Circular guiding articles of the Chemicals Law and Decree 26/2026/ND-CP</div>
+          <div class="card-meta">Circular 01/2026/TT-BCT · Ministry of Industry and Trade</div>
         </div>
         <span class="badge badge-Not-Applicable">N/A</span>
       </div>
-      <div class="card-body" style="margin-top:0.5rem; font-size:0.85rem">Amends Decrees 96/2024/NĐ-CP and 95/2024/NĐ-CP guiding the Law on Real Estate Business and Law on Housing. Includes provisions for electronic identification codes for housing in development projects and condominium management units.</div>
+      <div class="card-body" style="margin-top:0.5rem; font-size:0.85rem">This circular provides detailed guidance on specific articles of the Chemicals Law and Decree 26. It focuses on managing chemical activities and hazardous chemicals in goods. Issued with immediate effect for urgent enforcement.</div>
     </div>
     
-    <div class="card card-na" style="margin-top:0.75rem">
+    <div class="card card-Not-Applicable" style="margin-top:0.75rem">
       <div class="card-header">
         <div>
-          <div class="card-title">Amending Decree on Environmental Protection Implementation</div>
-          <div class="card-meta">Decree 48/2026/NĐ-CP · Government of Vietnam</div>
+          <div class="card-title">Circular on measures for implementation of the Chemicals Law and Decree 25/2026/ND-CP</div>
+          <div class="card-meta">Circular 02/2026/TT-BCT · Ministry of Industry and Trade</div>
         </div>
         <span class="badge badge-Not-Applicable">N/A</span>
       </div>
-      <div class="card-body" style="margin-top:0.5rem; font-size:0.85rem">Amends Decree 08/2022/NĐ-CP implementing the Law on Environmental Protection. Updates environmental protection regulations and enforcement procedures.</div>
+      <div class="card-body" style="margin-top:0.5rem; font-size:0.85rem">This circular stipulates measures to implement the Chemicals Law and Decree 25 on chemical industry development. It ensures safety and security in chemical operations. Effective immediately to avoid disruptions.</div>
+    </div>
+    
+    <div class="card card-Not-Applicable" style="margin-top:0.75rem">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Decree on administrative penalties in the archival sector</div>
+          <div class="card-meta">Decree 31/2026/NĐ-CP · Government</div>
+        </div>
+        <span class="badge badge-Not-Applicable">N/A</span>
+      </div>
+      <div class="card-body" style="margin-top:0.5rem; font-size:0.85rem">This decree sets penalties for administrative violations in archiving, with fines up to 30 million VND. It covers acts like unauthorized access, destruction, or misuse of documents. Effective date is March 8, 2026.</div>
+    </div>
+    
+    <div class="card card-Not-Applicable" style="margin-top:0.75rem">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Decree amending Decree 08/2022/ND-CP on environmental protection</div>
+          <div class="card-meta">Decree 48/2026/NĐ-CP · Government</div>
+        </div>
+        <span class="badge badge-Not-Applicable">N/A</span>
+      </div>
+      <div class="card-body" style="margin-top:0.5rem; font-size:0.85rem">This decree amends regulations implementing the Law on Environmental Protection. It updates prior decrees including Decree 05/2025/ND-CP. Effective from signing date.</div>
+    </div>
+    
+    <div class="card card-Not-Applicable" style="margin-top:0.75rem">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Decree amending decrees on houses and real estate business</div>
+          <div class="card-meta">Decree 54/2026/NĐ-CP · Government</div>
+        </div>
+        <span class="badge badge-Not-Applicable">N/A</span>
+      </div>
+      <div class="card-body" style="margin-top:0.5rem; font-size:0.85rem">This decree amends multiple decrees guiding laws on housing and real estate business, including Decrees 96, 95, 98, and 100. It introduces key changes to real estate regulations. Effective from signing.</div>
+    </div>
+    
+    <div class="card card-Not-Applicable" style="margin-top:0.75rem">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Decree on expulsion sanction and management of foreigners violating law</div>
+          <div class="card-meta">Decree 59/2026/NĐ-CP · Government</div>
+        </div>
+        <span class="badge badge-Not-Applicable">N/A</span>
+      </div>
+      <div class="card-body" style="margin-top:0.5rem; font-size:0.85rem">This decree regulates expulsion of foreigners, temporary custody, escort, and management of violators pending expulsion. It details procedures for handling foreign law-breakers. Effective April 1, 2026.</div>
+    </div>
+    
+    <div class="card card-Not-Applicable" style="margin-top:0.75rem">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Decree amending Decree on establishment of foreign representative offices</div>
+          <div class="card-meta">Decree 62/2026/NĐ-CP · Government</div>
+        </div>
+        <span class="badge badge-Not-Applicable">N/A</span>
+      </div>
+      <div class="card-body" style="margin-top:0.5rem; font-size:0.85rem">This decree amends Decree 06/2005/ND-CP, shortening licensing for foreign representative offices to 14 days. It streamlines procedures for foreign research and cooperation organizations. Effective March 1, 2026.</div>
+    </div>
+    
+    <div class="card card-Not-Applicable" style="margin-top:0.75rem">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Decree on enforcement of bankruptcy decisions for enterprises and cooperatives</div>
+          <div class="card-meta">Decree 64/2026/NĐ-CP · Government</div>
+        </div>
+        <span class="badge badge-Not-Applicable">N/A</span>
+      </div>
+      <div class="card-body" style="margin-top:0.5rem; font-size:0.85rem">This decree details implementation of the Law on Recovery and Bankruptcy for enforcing bankruptcy decisions. It allows enforcers to request suspension of asset auctions. Effective March 1, 2026.</div>
     </div>
     
   </details>
