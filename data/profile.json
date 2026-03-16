@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "last_updated": "2026-03-16",
+    "language": "en"
+  },
+  "personal": {
+    "residency_status": "vietnam_resident",
+    "nationality": "vietnamese",
+    "location": "Ha Dong, Hanoi"
+  },
+  "employment": {
+    "type": "employment",
+    "industry": "technology_software",
+    "employer_type": "employee",
+    "has_employees": false,
+    "works_with_foreign_clients": false
+  },
+  "business": {
+    "is_business_owner": false,
+    "business_type": null,
+    "registered_in_vietnam": false,
+    "handles_personal_data": false,
+    "processes_payments": false,
+    "has_foreign_investment": false
+  },
+  "assets": {
+    "owns_property_in_vietnam": false,
+    "owns_vehicle": true,
+    "has_vietnam_bank_account": true,
+    "has_foreign_bank_account": true,
+    "holds_crypto": true
+  },
+  "tax": {
+    "files_personal_income_tax": true,
+    "vat_registered": false,
+    "receives_foreign_currency_income": true
+  },
+  "interests": [
+    "labor_law",
+    "tax_law",
+    "data_privacy",
+    "freelance_contractor_regulations",
+    "fintech_payments",
+    "technology_law"
+  ]
+}

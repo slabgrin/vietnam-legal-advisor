@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🇻🇳 Vietnam Legal Advisor</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0f1117;
+      --surface:   #1a1d27;
+      --border:    #2a2d3a;
+      --text:      #e2e8f0;
+      --muted:     #718096;
+      --high:      #fc5c5c;
+      --high-bg:   #2d1515;
+      --medium:    #f6a623;
+      --medium-bg: #2d2010;
+      --low:       #63b3ed;
+      --low-bg:    #0f2030;
+      --na:        #4a5568;
+      --na-bg:     #1a1d27;
+      --action:    #68d391;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .container { max-width: 860px; margin: 0 auto; }
+
+    /* ── header ── */
+    header { margin-bottom: 2.5rem; }
+    header h1 { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.5px; }
+    header h1 span { opacity: 0.5; font-weight: 400; font-size: 1.2rem; margin-left: 0.5rem; }
+    .meta { color: var(--muted); font-size: 0.85rem; margin-top: 0.4rem; }
+
+    /* ── summary bar ── */
+    .summary {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      margin-bottom: 2rem;
+      padding: 1rem 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    .summary-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .dot-high   { background: var(--high); }
+    .dot-medium { background: var(--medium); }
+    .dot-low    { background: var(--low); }
+    .dot-na     { background: var(--na); }
+    .count { font-weight: 700; }
+
+    /* ── section headings ── */
+    .section-title {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--muted);
+      margin: 2rem 0 0.75rem;
+    }
+
+    /* ── law card ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .card-high   { border-left: 4px solid var(--high);   background: var(--high-bg); }
+    .card-medium { border-left: 4px solid var(--medium); background: var(--medium-bg); }
+    .card-low    { border-left: 4px solid var(--low);    background: var(--low-bg); }
+    .card-na     { border-left: 4px solid var(--na);     opacity: 0.65; }
+
+    .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+    .card-title  { font-size: 1rem; font-weight: 600; }
+    .card-meta   { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+
+    .badge {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px;
+      padding: 0.2rem 0.6rem; border-radius: 20px;
+      text-transform: uppercase; white-space: nowrap; flex-shrink: 0;
+    }
+    .badge-High          { background: var(--high);   color: #fff; }
+    .badge-Medium        { background: var(--medium); color: #000; }
+    .badge-Low           { background: var(--low);    color: #000; }
+    .badge-Not-Applicable{ background: var(--na);     color: #fff; }
+
+    .card-body { margin-top: 0.85rem; font-size: 0.92rem; color: #cbd5e0; }
+
+    .affects-list {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      margin: 0.75rem 0;
+    }
+    .tag {
+      font-size: 0.75rem; padding: 0.2rem 0.6rem;
+      border: 1px solid var(--border); border-radius: 20px; color: var(--muted);
+    }
+
+    /* ── action box ── */
+    .action-box {
+      margin-top: 1rem;
+      padding: 0.85rem 1rem;
+      background: rgba(104, 211, 145, 0.07);
+      border: 1px solid rgba(104, 211, 145, 0.2);
+      border-radius: 8px;
+    }
+    .action-box-title {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--action); margin-bottom: 0.5rem;
+    }
+    .action-box ul { padding-left: 1.2rem; }
+    .action-box li { font-size: 0.88rem; color: #9ae6b4; margin-bottom: 0.25rem; }
+
+    /* ── confidence ── */
+    .confidence { font-size: 0.75rem; color: var(--muted); margin-top: 0.75rem; }
+
+    /* ── source link ── */
+    .source-link {
+      display: inline-block; margin-top: 0.6rem;
+      font-size: 0.8rem; color: var(--low); text-decoration: none;
+    }
+    .source-link:hover { text-decoration: underline; }
+
+    /* ── collapsible NA section ── */
+    details summary {
+      cursor: pointer; font-size: 0.85rem; color: var(--muted);
+      list-style: none; padding: 0.6rem 0;
+      border-top: 1px solid var(--border);
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::before { content: "▶  "; font-size: 0.7rem; }
+    details[open] summary::before { content: "▼  "; }
+
+    /* ── empty state ── */
+    .empty { text-align: center; color: var(--muted); padding: 3rem; }
+
+    /* ── footer ── */
+    footer {
+      margin-top: 3rem; padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem; color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>🇻🇳 Vietnam Legal Advisor <span>for {{ profile.personal.location }}</span></h1>
+    <p class="meta">
+      Last updated: {{ generated_at }} &nbsp;·&nbsp;
+      {{ total_laws }} laws analyzed &nbsp;·&nbsp;
+      {{ relevant_count }} relevant to your profile
+    </p>
+  </header>
+
+  <!-- summary bar -->
+  <div class="summary">
+    <div class="summary-item"><div class="dot dot-high"></div>
+      <span><span class="count">{{ counts.High }}</span> High impact</span></div>
+    <div class="summary-item"><div class="dot dot-medium"></div>
+      <span><span class="count">{{ counts.Medium }}</span> Medium impact</span></div>
+    <div class="summary-item"><div class="dot dot-low"></div>
+      <span><span class="count">{{ counts.Low }}</span> Low impact</span></div>
+    <div class="summary-item"><div class="dot dot-na"></div>
+      <span><span class="count">{{ counts["Not Applicable"] }}</span> Not applicable</span></div>
+  </div>
+
+  <!-- relevant laws -->
+  {% set relevant = laws | selectattr("analysis.relevant") | list %}
+  {% if relevant %}
+    <p class="section-title">⚠ Affects You</p>
+    {% for law in relevant %}
+    {% set level = law.analysis.impact_level %}
+    <div class="card card-{{ level | replace(' ', '-') }}">
+      <div class="card-header">
+        <div>
+          <div class="card-title">{{ law.title }}</div>
+          <div class="card-meta">
+            {{ law.doc_number }}{% if law.doc_number and law.issuer %} &nbsp;·&nbsp; {% endif %}{{ law.issuer }}
+            {% if law.effective %} &nbsp;·&nbsp; Effective {{ law.effective }}{% elif law.published %} &nbsp;·&nbsp; Published {{ law.published }}{% endif %}
+          </div>
+        </div>
+        <span class="badge badge-{{ level | replace(' ', '-') }}">{{ level }}</span>
+      </div>
+
+      <div class="card-body">
+        {{ law.analysis.explanation }}
+
+        {% if law.analysis.affects %}
+        <div class="affects-list">
+          {% for tag in law.analysis.affects %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if law.analysis.action_needed %}
+        <div class="action-box">
+          <div class="action-box-title">✅ Action Required</div>
+          <ul>
+            {% for item in law.analysis.action_items %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+
+        <div class="confidence">Confidence: {{ law.analysis.confidence }}</div>
+        {% if law.url %}
+        <a class="source-link" href="{{ law.url }}" target="_blank" rel="noopener">
+          → View source document
+        </a>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <div class="empty">
+      <p>✅ No new laws affect your profile this period.</p>
+    </div>
+  {% endif %}
+
+  <!-- not applicable — collapsed by default -->
+  {% set not_applicable = laws | rejectattr("analysis.relevant") | list %}
+  {% if not_applicable %}
+  <details>
+    <summary>{{ not_applicable | length }} laws reviewed — not applicable to you</summary>
+    {% for law in not_applicable %}
+    <div class="card card-na" style="margin-top:0.75rem">
+      <div class="card-header">
+        <div>
+          <div class="card-title">{{ law.title }}</div>
+          <div class="card-meta">{{ law.doc_number }}{% if law.doc_number and law.issuer %} · {% endif %}{{ law.issuer }}</div>
+        </div>
+        <span class="badge badge-Not-Applicable">N/A</span>
+      </div>
+      <div class="card-body" style="margin-top:0.5rem; font-size:0.85rem">{{ law.summary }}</div>
+    </div>
+    {% endfor %}
+  </details>
+  {% endif %}
+
+  <footer>
+    Generated by <strong>Vietnam Legal Advisor</strong> using Perplexity Sonar API &nbsp;·&nbsp;
+    Not legal advice — consult a qualified lawyer for specific guidance.
+  </footer>
+
+</div>
+</body>
+</html>

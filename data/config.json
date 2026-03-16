@@ -1,0 +1,32 @@
+{
+  "scraper": {
+    "sources": [
+      {
+        "name": "vbpl_rss_english",
+        "url": "https://vbpl.vn/TW/Pages/RssFeeder.aspx?dvid=13&cqbh=19&IsVietNamese=False",
+        "type": "rss"
+      },
+      {
+        "name": "vbpl_rss_vietnamese",
+        "url": "https://vbpl.vn/TW/Pages/RssFeeder.aspx?dvid=13&cqbh=19&IsVietNamese=True",
+        "type": "rss"
+      }
+    ],
+    "lookback_days": 30
+  },
+  "llm": {
+    "provider": "perplexity",
+    "base_url": "https://api.perplexity.ai",
+    "models": {
+      "summarizer": "sonar",
+      "analyzer": "sonar-pro",
+      "explainer": "sonar-pro"
+    },
+    "max_tokens": 1024,
+    "temperature": 0.2
+  },
+  "output": {
+    "path": "output/index.html",
+    "template": "templates/index.html.j2"
+  }
+}
